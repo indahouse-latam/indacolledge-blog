@@ -7,13 +7,13 @@ import { Providers } from "@/modules/common/providers/Providers";
 
 type Params = Promise<{ locale: string }>;
 
-export const mainFont = Montserrat({
+const MontserratFont = Montserrat({
   subsets: ["latin"],
   weight: ["500", "700", "900"],
   variable: "--font-monserrat",
 });
 
-export const titleFont = K2D({
+const K2DFont = K2D({
   subsets: ["latin"],
   weight: ["500", "700", "800"],
   variable: "--font-k2d",
@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${mainFont.variable} ${mainFont.variable} antialiased font-monserrat`}
+        className={`${K2DFont.variable} ${MontserratFont.variable} antialiased font-monserrat`}
       >
         <NextIntlClientProvider messages={messages}>
           <Providers>{children}</Providers>
