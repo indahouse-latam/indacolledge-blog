@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        monserrat: "var(--font-monserrat)",
+        k2d: "var(--font-k2d)",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
