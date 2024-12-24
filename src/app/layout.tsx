@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { K2D, Montserrat } from "next/font/google";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
+import "./globals.css";
+import { Providers } from "@/modules/common/providers/Providers";
 
 type Params = Promise<{ locale: string }>;
 
@@ -40,7 +41,7 @@ export default async function RootLayout({
         className={`${mainFont.variable} ${mainFont.variable} antialiased font-monserrat`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Providers>{children}</Providers>
         </NextIntlClientProvider>
       </body>
     </html>
