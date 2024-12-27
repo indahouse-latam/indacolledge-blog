@@ -5,7 +5,7 @@ import { UserActions } from "./UserActions";
 
 export const Navbar = async () => {
   return (
-    <header className="px-5 py-3 shadow-sm flex items-center justify-between">
+    <header className="px-5 py-3 flex items-center justify-between">
       <nav className="flex items-center justify-between w-full">
         <Link href="/">
           <Image

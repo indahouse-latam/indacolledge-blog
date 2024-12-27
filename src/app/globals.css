@@ -42,27 +42,27 @@
     }
 
     .text-14-normal {
-        @apply font-normal text-sm text-white-100/80;
+        @apply font-normal text-sm text-white/80;
     }
 
-    .pink_container {
-        @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
+    .hero_container {
+        @apply w-full min-h-[530px] flex justify-center items-center flex-col py-10 px-6;
     }
 
     .tag {
-        @apply bg-secondary px-6 py-3 font-monserrat font-bold rounded-sm uppercase relative tag-tri;
+        @apply px-6 py-3 font-monserrat font-bold rounded-sm uppercase relative tag-tri;
     }
 
     .heading {
-        @apply uppercase bg-black px-6 py-3 font-monserrat font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+        @apply uppercase font-monserrat font-semibold text-black sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] w-full text-center my-5;
     }
 
     .sub-heading {
-        @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
+        @apply font-medium text-[20px] text-black max-w-2xl text-center break-words;
     }
 
     .section_container {
-        @apply px-6 py-10 max-w-7xl mx-auto;
+        @apply px-12 py-10 mx-auto;
     }
 
     .card_grid {
@@ -74,7 +74,7 @@
     }
 
     .no-result {
-        @apply text-black-100 text-sm font-normal;
+        @apply text-black text-sm font-normal;
     }
 
     /* profile */
@@ -83,11 +83,11 @@
     }
 
     .profile_card {
-        @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-primary border-[5px] border-black shadow-100 rounded-[30px] relative z-0 h-fit max-lg:w-full;
+        @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-primary border-[5px] border-black shadow rounded-[30px] relative z-0 h-fit max-lg:w-full;
     }
 
     .profile_title {
-        @apply w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0 before:-skew-y-6 before:w-full before:h-[60px] before:bg-black before:-z-[1] before:rounded-[20px] shadow-100;
+        @apply w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0 before:-skew-y-6 before:w-full before:h-[60px] before:bg-black before:-z-[1] before:rounded-[20px] shadow;
     }
 
     .profile_image {
@@ -113,41 +113,41 @@
     }
 
     .login {
-        @apply border-[5px] py-4 border-black bg-white text-black relative shadow-100 font-monserrat font-medium hover:shadow-none transition-all duration-500 !important;
+        @apply border-[5px] py-4 border-black bg-white text-black relative shadow font-monserrat font-medium hover:shadow-none transition-all duration-500 !important;
     }
 
     /* searchform */
     .search-form {
-        @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
+        @apply max-w-3xl w-full min-h-[60px] bg-white border-[1px] border-black rounded-[80px] text-[24px] mt-8 pl-5 pr-2 flex flex-row items-center gap-5;
     }
 
     .search-input {
-        @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 w-full h-auto outline-none;
+        @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black w-full outline-none;
     }
 
     .search-btn {
-        @apply size-[50px] rounded-full bg-black flex justify-center items-center !important;
+        @apply size-[40px] rounded-full bg-black flex justify-center items-center !important;
     }
 
     /* articlecard */
     .article-card {
-        @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-primary-100;
+        @apply bg-white border-[1px] border-black py-6 px-5 rounded-[22px] shadow hover:border-primary transition-all duration-500 hover:shadow-sm hover:bg-primary-100;
     }
 
     .article-card_date {
-        @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100;
+        @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white;
     }
 
     .article-card_desc {
-        @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all;
+        @apply font-normal text-[16px] line-clamp-2 my-3 text-black break-all;
     }
 
     .article-card_img {
-        @apply w-full h-[164px] rounded-[10px] object-cover;
+        @apply w-full rounded-[10px] object-cover;
     }
 
     .article-card_btn {
-        @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
+        @apply rounded-full bg-black font-medium text-[16px] text-white px-5 py-3 !important;
     }
 
     .article-card_skeleton {
@@ -160,15 +160,15 @@
     }
 
     .article-form_label {
-        @apply font-bold text-[18px] text-black uppercase;
+        @apply font-semibold text-[18px] text-black uppercase;
     }
 
     .article-form_input {
-        @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-black-300 !important;
+        @apply border-[1px] border-black text-[18px] p-2 text-black font-semibold rounded-full mt-3 placeholder:text-black !important;
     }
 
     .article-form_textarea {
-        @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black-300 !important;
+        @apply border-[1px] border-black p-2 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black !important;
     }
 
     .article-form_error {
@@ -176,11 +176,11 @@
     }
 
     .article-form_editor {
-        @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 !important;
+        @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black !important;
     }
 
     .article-form_btn {
-        @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] !important;
+        @apply border-[1px] border-black rounded-full p-5 text-black w-full font-semibold text-[18px] bg-white !important;
     }
 
     /* view */

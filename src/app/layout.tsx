@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { K2D, Montserrat } from "next/font/google";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import "./globals.css";
 import { Providers } from "@/modules/common/providers/Providers";
+import "./globals.css";
+import "easymde/dist/easymde.min.css";
 
 type Params = Promise<{ locale: string }>;
 
