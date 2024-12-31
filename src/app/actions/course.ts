@@ -47,6 +47,7 @@ export const createCourse = async (form: CreateArticleFormType) => {
         _type: "reference",
         _ref: session?.id,
       },
+      publishedAt: new Date().toISOString(),
       views: 0,
       categories,
       body,

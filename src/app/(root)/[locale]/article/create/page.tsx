@@ -17,7 +17,7 @@ const CreateArticlePage = async () => {
 
   return (
     <>
-      <section className="hero_container !min-h-[230px]">
+      <section className="hero_container !min-h-[180px]">
         <h2 className="heading">Submit your course</h2>
       </section>
       <CreateArticleForm categories={categories as Category[]} />
