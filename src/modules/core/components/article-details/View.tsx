@@ -21,12 +21,12 @@ export const View = async ({ id }: { id: string }) => {
   );
 
   return (
-    <div className="view-container">
+    <div className="view-container z-10">
       <div className="absolute -top-2 -right-2">
         <Ping />
       </div>
-      <p className="view-text">
-        <span className="font-black">{totalViews} views</span>
+      <p className="bg-black px-4 py-2 rounded-lg capitalize font-semibold">
+        <span className="text-white">{totalViews} views</span>
       </p>
     </div>
   );

@@ -1,0 +1,13 @@
+<svg
+    className="absolute "
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 2000 1000"
+>
+    <path
+        d="M2 21.9905C409.659 250.383 827 72.9807 988.5 21.9905C1150 -28.9997 1229 36
+      1274 59.9905"
+        stroke="#5767fb"
+        strokeWidth="7"
+    />
+</svg>

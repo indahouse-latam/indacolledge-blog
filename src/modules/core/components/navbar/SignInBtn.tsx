@@ -9,7 +9,7 @@ export const SignInBtn = () => {
     <form action={googlelogIn}>
       <Button
         radius="full"
-        className="hover-btn"
+        className="hover-btn border-black font-medium"
         variant="bordered"
         type="submit"
       >

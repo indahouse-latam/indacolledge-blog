@@ -62,7 +62,12 @@ export function Preloader() {
       {dimension.width > 0 && (
         <>
           <div className="flex flex-col items-center justify-center gap-4">
-            <Image src="/logo-indahouse.svg" alt="Indahouse" />
+            <div className="flex flex-col items-center gap-4 text-black z-10">
+              <h2 className="text-4xl text-black font-medium">
+                Indacollege <span className="text-sm">by</span>
+              </h2>
+              <Image src="/logo-indahouse.svg" alt="Indahouse" />
+            </div>
             <motion.p
               variants={opacity}
               initial="initial"

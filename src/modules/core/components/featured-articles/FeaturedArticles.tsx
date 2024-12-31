@@ -20,9 +20,18 @@ export const FeaturedArticles = async ({
 
   return (
     <>
-      <section className="section_container">
+      <section className="section_container relative !w-screen overflow-hidden">
+        {/* Background Curve */}
+        <div
+          className="absolute inset-0 bg-repeat-y inset-x-[24rem] -rotate-45 md:-rotate-0 lg:inset-x-[110rem] -inset-y-0 md:inset-y-64 lg:inset-y-64 w-full h-full -z-10 scale-150 !scale-x-[2.5] md:!scale-x-[1.6] lg:scale-100 lg:!scale-x-[3.2]"
+          style={{
+            backgroundImage: 'url("/curve.svg")',
+            backgroundSize: "auto 1200px",
+          }}
+        ></div>
+
         <p className="font-semibold text-xl">
-          {query ? `Search results for "${query}"` : "Recent blog posts"}
+          {query ? `Search results for "${query}"` : "All blog posts"}
         </p>
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (

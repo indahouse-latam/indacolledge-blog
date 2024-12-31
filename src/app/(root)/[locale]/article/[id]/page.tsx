@@ -1,7 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { ARTICLES_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { formatDate } from "@/utils/format-date";
-import { Image, Link, Skeleton, User } from "@nextui-org/react";
+import { Chip, Image, Link, Skeleton, User } from "@nextui-org/react";
 import { notFound } from "next/navigation";
 import markdownit from "markdown-it";
 import { Suspense } from "react";
@@ -28,12 +28,17 @@ const ArticlePage = async ({ params }: { params: Promise<{ id: string }> }) => {
         <p className="tag">{formatDate(post?.publishedAt || "")}</p>
         <h2 className="heading">{post?.title}</h2>
       </section>
-      <section className="section_container">
-        <Image isZoomed src={post?.mainImage || ""} alt="Thumbail" />
+      <section className="section_container flex flex-col items-center">
+        <Image
+          isZoomed
+          src={post?.mainImage || ""}
+          className="w-[350px] md:w-[450px] lg:w-[550px] h-[350px] self-center"
+          alt="Thumbail"
+        />
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
           <div className="flex-between gap-5">
             <Link
-              href={`/app/user/${post?.author?._id}`}
+              href={`/user/${post?.author?._id}`}
               className="flex gap-2 items-center mb-3"
             >
               <User
@@ -44,13 +49,20 @@ const ArticlePage = async ({ params }: { params: Promise<{ id: string }> }) => {
                 name={post?.author?.name}
               />
             </Link>
-            {post.categories?.map((category) => (
-              <p key={category._id} className="category-tag">
-                {category.title}
-              </p>
-            ))}
+            <div className="flex items-center gap-2">
+              {post.categories?.map((category) => (
+                <Chip
+                  key={category._id}
+                  size="sm"
+                  className="text-black border border-black text-sm font-medium"
+                  variant="bordered"
+                >
+                  {category.title}
+                </Chip>
+              ))}
+            </div>
           </div>
-          <h3 className="text-30-bold">How to make it? </h3>
+          <h3 className="text-30-bold">About</h3>
           {parsedContent ? (
             <article
               className="prose max-w-4xl font-work-sans break-all"

@@ -1,7 +1,8 @@
 export const formatDate = (date: string | Date) => {
-  return new Date(date).toLocaleDateString("en-US", {
-    month: "long",
+  const parsedDate = new Date(date);
+  return parsedDate.toLocaleDateString("en-US", {
     day: "numeric",
+    month: "short",
     year: "numeric",
   });
 };

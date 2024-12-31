@@ -39,7 +39,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${K2DFont.variable} ${MontserratFont.variable} antialiased font-monserrat`}
+        className={`${K2DFont.variable} ${MontserratFont.variable} antialiased font-monserrat w-screen overflow-x-hidden`}
       >
         <NextIntlClientProvider messages={messages}>
           <Providers>{children}</Providers>
