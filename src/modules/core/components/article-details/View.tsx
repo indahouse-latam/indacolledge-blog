@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { writeClient } from "@/sanity/lib/write-client";
 import { ARTICLE_VIEW_QUERY } from "@/sanity/lib/queries";
 import { Ping } from "@/modules/common/Ping";
-import { after } from "next/server";
+import { unstable_after as after } from "next/server";
 
 export const View = async ({ id }: { id: string }) => {
   const views = await client
