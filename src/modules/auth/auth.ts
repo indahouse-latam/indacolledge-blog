@@ -17,12 +17,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return false;
       }
 
+      // Get isToSignUp from the state parameter
+      // const isToSignUp = props.state?.isToSignUp === true;
+
       const existingUser = await client
         .withConfig({ useCdn: false })
-        .fetch(AUTHOR_BY_GOOGLE_ID_QUERY, {
-          id: googleId,
-        });
+        .fetch(AUTHOR_BY_GOOGLE_ID_QUERY, { id: googleId });
 
+      // Create new user only if it's a sign up
       if (!existingUser) {
         await writeClient.create({
           _type: "author",

@@ -9,11 +9,15 @@ export default {
   ],
   theme: {
     extend: {
+      height: {
+        "no-header": "calc(100vh - 64px)",
+      },
       fontFamily: {
         monserrat: "var(--font-monserrat)",
         k2d: "var(--font-k2d)",
       },
       colors: {
+        primary: "#27215E",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
