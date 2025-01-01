@@ -17,7 +17,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return false;
       }
 
-      // Get isToSignUp from the state parameter
       // const isToSignUp = props.state?.isToSignUp === true;
 
       const existingUser = await client
