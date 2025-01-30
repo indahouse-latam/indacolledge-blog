@@ -9,7 +9,7 @@ export const Hero = async ({
 
   return (
     <>
-      <section className="hero_container !w-screen relative overflow-hidden">
+      <section className="hero_container !min-h-[450px] !w-screen relative overflow-hidden">
         {/* Background Curve SVG */}
         <svg
           className="absolute -inset-x-16 lg:inset-x-0 -inset-y-16 md:inset-y-12 lg:inset-y-32 w-full h-full -z-10 scale-[2.5]"

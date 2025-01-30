@@ -6,8 +6,8 @@ export const logOut = async () => {
   await signOut({ redirectTo: "/en" });
 };
 
-export const googlelogIn = async (isToSignUp: boolean) => {
-  await signIn("google", { callbackUrl: "/", state: { isToSignUp } });
+export const googlelogIn = async () => {
+  await signIn("google");
 };
 
 export const credentialslogIn = async (email: string, password: string) => {

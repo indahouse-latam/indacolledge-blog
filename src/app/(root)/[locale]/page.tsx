@@ -6,7 +6,7 @@ type HomeProps = {
   searchParams: Promise<{ query?: string }>;
 };
 
-export default function Home(props: HomeProps) {
+export default async function Home(props: HomeProps) {
   return (
     <>
       <PreloaderComponent />

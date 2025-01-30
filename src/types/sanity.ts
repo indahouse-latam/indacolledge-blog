@@ -162,6 +162,7 @@ export type Author = {
   name?: string;
   username?: string;
   email?: string;
+  role?: "viewer" | "publisher";
   hashPassword?: string;
   image?: string;
   bio?: string;
@@ -217,11 +218,12 @@ export type ARTICLE_VIEW_QUERYResult = {
   views: number | null;
 } | null;
 // Variable: AUTHOR_BY_GOOGLE_ID_QUERY
-// Query: *[    _type == "author" &&     id == $id  ][0] {    _id,    id,    name,    username,    email,    image,    bio  }
+// Query: *[    _type == "author" &&     id == $id  ][0] {    _id,    id,    name,    role,    username,    email,    image,    bio  }
 export type AUTHOR_BY_GOOGLE_ID_QUERYResult = {
   _id: string;
   id: number | null;
   name: string | null;
+  role: "publisher" | "viewer" | null;
   username: string | null;
   email: string | null;
   image: string | null;
@@ -330,7 +332,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[\n  _type == \"article\" && \n  defined(slug.current) && \n  (!defined($search) || title match $search || categories[]->title match $search || author->name match $search)\n] | order(publishedAt desc) {\n  _id,\n  title,\n  slug,\n  publishedAt,\n  views,\n  author -> {\n    _id,\n    name,\n    image,\n    bio\n  },\n  mainImage,\n  categories[] -> {\n    _id,\n    title\n  },\n  body\n}": ARTICLES_QUERYResult;
     "\n  *[\n    _type == \"article\" && \n    _id == $id\n  ][0] {\n    _id,\n    views\n  }\n": ARTICLE_VIEW_QUERYResult;
-    "\n  *[\n    _type == \"author\" && \n    id == $id\n  ][0] {\n    _id,\n    id,\n    name,\n    username,\n    email,\n    image,\n    bio\n  }\n": AUTHOR_BY_GOOGLE_ID_QUERYResult;
+    "\n  *[\n    _type == \"author\" && \n    id == $id\n  ][0] {\n    _id,\n    id,\n    name,\n    role,\n    username,\n    email,\n    image,\n    bio\n  }\n": AUTHOR_BY_GOOGLE_ID_QUERYResult;
     "\n  *[\n    _type == \"author\" && \n    email == $email\n  ][0] {\n    _id,\n    id,\n    name,\n    username,\n    email,\n    image,\n    bio,\n    hashPassword\n  }\n": AUTHOR_BY_EMAIL_QUERYResult;
     "\n  *[\n    _type == \"author\" && \n    _id == $id\n  ][0] {\n    _id,\n    id,\n    name,\n    username,\n    email,\n    image,\n    bio\n  }\n": AUTHOR_BY_ID_QUERYResult;
     "\n  *[\n    _type == \"playlist\" && \n    slug.current == $slug\n  ][0] {\n    _id,\n    title,\n    slug,\n    select[] -> {\n      _id,\n      publishedAt,\n      title,\n      slug,\n      author -> {\n        _id,\n        name,\n        slug,\n        image,\n        bio\n      },\n      mainImage,\n      categories[] -> {\n        _id,\n        title\n      },\n      body\n    }\n  }\n": PLAYLIST_BY_SLUG_QUERYResult;

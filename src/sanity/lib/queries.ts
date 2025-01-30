@@ -42,6 +42,7 @@ export const AUTHOR_BY_GOOGLE_ID_QUERY = defineQuery(`
     _id,
     id,
     name,
+    role,
     username,
     email,
     image,

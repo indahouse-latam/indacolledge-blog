@@ -24,6 +24,19 @@ export const authorType = defineType({
       type: "string",
     }),
     defineField({
+      name: "role",
+      title: "Role",
+      type: "string",
+      options: {
+        list: [
+          { title: "Viewer", value: "viewer" },
+          { title: "Publisher", value: "publisher" },
+        ],
+      },
+      initialValue: "viewer",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "hashPassword",
       type: "string",
     }),

@@ -17,13 +17,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return false;
       }
 
-      // const isToSignUp = props.state?.isToSignUp === true;
-
       const existingUser = await client
         .withConfig({ useCdn: false })
         .fetch(AUTHOR_BY_GOOGLE_ID_QUERY, { id: googleId });
 
-      // Create new user only if it's a sign up
       if (!existingUser) {
         await writeClient.create({
           _type: "author",
@@ -34,6 +31,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: user.email,
           image: user.image,
           bio: profile?.bio || "",
+          role: "viewer",
         });
       }
 
@@ -54,12 +52,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           });
 
         token.id = user?._id;
+        token.role = user?.role;
       }
       return token;
     },
 
     async session({ session, token }) {
-      Object.assign(session, { id: token.id });
+      Object.assign(session, {
+        id: token.id,
+        role: token.role,
+      });
       return session;
     },
   },

@@ -879,6 +879,23 @@
         },
         "optional": true
       },
+      "role": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "viewer"
+            },
+            {
+              "type": "string",
+              "value": "publisher"
+            }
+          ]
+        },
+        "optional": true
+      },
       "hashPassword": {
         "type": "objectAttribute",
         "value": {
