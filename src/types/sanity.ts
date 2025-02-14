@@ -158,7 +158,7 @@ export type Author = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  id?: number;
+  id?: string;
   name?: string;
   username?: string;
   email?: string;
@@ -221,7 +221,7 @@ export type ARTICLE_VIEW_QUERYResult = {
 // Query: *[    _type == "author" &&     id == $id  ][0] {    _id,    id,    name,    role,    username,    email,    image,    bio  }
 export type AUTHOR_BY_GOOGLE_ID_QUERYResult = {
   _id: string;
-  id: number | null;
+  id: string | null;
   name: string | null;
   role: "admin" | "publisher" | "viewer" | null;
   username: string | null;
@@ -233,7 +233,7 @@ export type AUTHOR_BY_GOOGLE_ID_QUERYResult = {
 // Query: *[    _type == "author" &&     email == $email  ][0] {    _id,    id,    name,    username,    email,    image,    bio,    hashPassword  }
 export type AUTHOR_BY_EMAIL_QUERYResult = {
   _id: string;
-  id: number | null;
+  id: string | null;
   name: string | null;
   username: string | null;
   email: string | null;
@@ -245,7 +245,7 @@ export type AUTHOR_BY_EMAIL_QUERYResult = {
 // Query: *[    _type == "author" &&     _id == $id  ][0] {    _id,    id,    name,    username,    email,    image,    bio  }
 export type AUTHOR_BY_ID_QUERYResult = {
   _id: string;
-  id: number | null;
+  id: string | null;
   name: string | null;
   username: string | null;
   email: string | null;
