@@ -23,7 +23,7 @@ export const AuthContent = () => {
       Cookies.set("intended_role", "publisher");
       await googlelogIn();
     } catch (error) {
-      toast.error(error);
+      toast.error(error as string);
     }
   };
 

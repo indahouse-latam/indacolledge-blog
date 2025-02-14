@@ -3,7 +3,7 @@ import { Button } from "@nextui-org/react";
 
 export function GoogleSignInForm() {
   return (
-    <form action={() => googlelogIn(true)}>
+    <form action={googlelogIn}>
       <Button
         className="w-full text-gray-900 border border-gray-300"
         type="submit"

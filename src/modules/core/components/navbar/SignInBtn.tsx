@@ -6,7 +6,7 @@ import React from "react";
 
 export const SignInBtn = () => {
   return (
-    <form action={() => googlelogIn(false)}>
+    <form action={googlelogIn}>
       <Button
         radius="full"
         className="hover-btn border-black font-medium"

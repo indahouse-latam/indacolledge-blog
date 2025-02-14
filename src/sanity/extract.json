@@ -891,6 +891,10 @@
             {
               "type": "string",
               "value": "publisher"
+            },
+            {
+              "type": "string",
+              "value": "admin"
             }
           ]
         },

@@ -2,21 +2,27 @@
 
 import { auth } from "@/modules/auth/auth";
 import { writeClient } from "@/sanity/lib/write-client";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST() {
   try {
     const session = await auth();
 
-    const googleId = session?.id;
+    if (!session?.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
-    const { intendedRole } = req.body;
-    await writeClient
-      .patch(googleId as string)
-      .set({ role: intendedRole })
+    const googleId = session.id;
+    const response = await writeClient
+      .patch(googleId)
+      .set({ role: "publisher" })
       .commit();
-    return res.status(200).json({ message: "Role updated successfully" });
-  } catch (error) {
-    return res.status(500).json({ message: "Internal Server Error" });
+
+    return NextResponse.json({ user: response }, { status: 200 });
+  } catch {
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

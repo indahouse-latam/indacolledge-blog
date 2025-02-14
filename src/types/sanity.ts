@@ -162,7 +162,7 @@ export type Author = {
   name?: string;
   username?: string;
   email?: string;
-  role?: "viewer" | "publisher";
+  role?: "viewer" | "publisher" | "admin";
   hashPassword?: string;
   image?: string;
   bio?: string;
@@ -223,7 +223,7 @@ export type AUTHOR_BY_GOOGLE_ID_QUERYResult = {
   _id: string;
   id: number | null;
   name: string | null;
-  role: "publisher" | "viewer" | null;
+  role: "admin" | "publisher" | "viewer" | null;
   username: string | null;
   email: string | null;
   image: string | null;

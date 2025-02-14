@@ -9,7 +9,7 @@ export const authorType = defineType({
   fields: [
     defineField({
       name: "id",
-      type: "number",
+      type: "string",
     }),
     defineField({
       name: "name",
@@ -31,6 +31,7 @@ export const authorType = defineType({
         list: [
           { title: "Viewer", value: "viewer" },
           { title: "Publisher", value: "publisher" },
+          { title: "Admin", value: "admin" },
         ],
       },
       initialValue: "viewer",

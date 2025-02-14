@@ -7,7 +7,9 @@ export const logOut = async () => {
 };
 
 export const googlelogIn = async () => {
-  await signIn("google");
+  await signIn("google", {
+    redirectTo: "/en",
+  });
 };
 
 export const credentialslogIn = async (email: string, password: string) => {
