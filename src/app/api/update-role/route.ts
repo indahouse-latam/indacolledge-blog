@@ -13,16 +13,17 @@ export async function POST() {
     }
 
     const googleId = session.id;
+
     const response = await writeClient
       .patch(googleId)
       .set({ role: "publisher" })
       .commit();
+    console.log("test");
+
+    console.log(response);
 
     return NextResponse.json({ user: response }, { status: 200 });
-  } catch {
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 }
-    );
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

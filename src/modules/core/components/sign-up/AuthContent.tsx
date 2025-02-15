@@ -7,12 +7,24 @@ import { googlelogIn } from "@/app/actions/auth";
 import { Button } from "@nextui-org/react";
 import { toast } from "sonner";
 
-export const AuthContent = () => {
+export type TokenDataType = {
+  email: string;
+  exp: number;
+  generatedToken: string;
+  role: string;
+};
+
+interface Props {
+  tokenData: TokenDataType;
+}
+
+export const AuthContent = ({ tokenData }: Props) => {
   const [isTokenValidated, setIsTokenValidated] = useState(false);
 
   if (!isTokenValidated) {
     return (
       <TokenValidationForm
+        generatedToken={tokenData.generatedToken}
         onValidationComplete={() => setIsTokenValidated(true)}
       />
     );
@@ -20,7 +32,7 @@ export const AuthContent = () => {
 
   const handleSignUp = async () => {
     try {
-      Cookies.set("intended_role", "publisher");
+      Cookies.set("intended_role", tokenData.role);
       await googlelogIn();
     } catch (error) {
       toast.error(error as string);

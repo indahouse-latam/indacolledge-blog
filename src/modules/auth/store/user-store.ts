@@ -1,7 +1,8 @@
+import { logOut } from "@/app/actions/auth";
+import { createCookieStorage } from "@/modules/common/lib/cookiesStorage";
 import { Author } from "@/types/sanity";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { createCookieStorage } from "../common/lib/cookiesStorage";
 
 interface AuthState {
   user: Author | null;
@@ -16,7 +17,11 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       isAuthenticated: false,
       setUser: (user) => set({ user, isAuthenticated: !!user }),
-      signOut: () => set({ user: null, isAuthenticated: false }),
+      signOut: async () => {
+        await logOut();
+
+        set({ user: null, isAuthenticated: false });
+      },
     }),
     {
       name: "auth-storage",

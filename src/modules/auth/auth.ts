@@ -24,6 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (!existingUser) {
         await writeClient.create({
           _type: "author",
+          _id: googleId,
           id: googleId,
           name: user.name,
           username: profile?.nickname,
@@ -39,30 +40,31 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
 
     async jwt({ token, account, profile }) {
-      if (account?.provider === "google" && profile) {
-        const googleId = profile?.sub;
-        if (!googleId) {
-          return token;
-        }
+      if (account && profile) {
+        token.sub = profile.sub as string | undefined;
+        token.googleId = profile.sub;
 
-        const user = await client
+        const sanityUser = await client
           .withConfig({ useCdn: false })
           .fetch(AUTHOR_BY_GOOGLE_ID_QUERY, {
-            id: googleId,
+            id: profile.sub,
           });
 
-        token.id = user?._id;
-        token.role = user?.role;
+        if (sanityUser) {
+          token.role = sanityUser.role;
+          token.sanityId = sanityUser._id;
+        }
       }
+
       return token;
     },
 
     async session({ session, token }) {
-      Object.assign(session, {
-        id: token.id,
+      return {
+        ...session,
+        id: token.googleId,
         role: token.role,
-      });
-      return session;
+      };
     },
   },
 });

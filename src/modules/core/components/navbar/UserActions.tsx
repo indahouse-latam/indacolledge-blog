@@ -1,8 +1,8 @@
 import { auth } from "@/modules/auth/auth";
-import { Link } from "@/modules/translations/i18n/routing";
-import React from "react";
-import { LogOut } from "./LogOut";
 import { SignInBtn } from "./SignInBtn";
+import { InviteButton } from "./InviteButton";
+import { CreatePostBtn } from "./CreatePostBtn";
+import { ProfileDropdown } from "./ProfileDropdown";
 
 export const UserActions = async () => {
   const session = await auth();
@@ -11,13 +11,9 @@ export const UserActions = async () => {
     <>
       {session && session?.user ? (
         <>
-          <Link href={"/article/create"}>
-            <span>Create article</span>
-          </Link>
-          <LogOut />
-          <Link href={`/user/${session?.id}`}>
-            <span>{session?.user?.name}</span>
-          </Link>
+          <InviteButton />
+          <CreatePostBtn />
+          <ProfileDropdown session={session} />
         </>
       ) : (
         <SignInBtn />

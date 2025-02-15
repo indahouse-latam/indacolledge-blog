@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { Providers } from "@/modules/common/providers/Providers";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
+import { SessionProvider } from "next-auth/react";
 
 type Params = Promise<{ locale: string }>;
 
@@ -66,7 +67,9 @@ export default async function RootLayout({
         className={`${K2DFont.variable} ${MontserratFont.variable} text-primary antialiased font-monserrat w-screen overflow-x-hidden`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Providers>{children}</Providers>
+          <SessionProvider>
+            <Providers>{children}</Providers>
+          </SessionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

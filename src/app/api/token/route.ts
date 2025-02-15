@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import argon2 from "argon2";
-
-const SECURE_PHRASE = "my-secure-phrase";
+import { SECURE_PHRASE } from "@/modules/common/constants";
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,11 +9,11 @@ export async function POST(request: NextRequest) {
 
     if (action === "generate") {
       // Generate token
-      const generatedToken = await argon2.hash(SECURE_PHRASE);
+      const generatedToken = await argon2.hash(SECURE_PHRASE!);
       return NextResponse.json({ token: generatedToken });
     } else if (action === "validate") {
       // Validate token
-      const isValid = await argon2.verify(token, SECURE_PHRASE);
+      const isValid = await argon2.verify(token, SECURE_PHRASE!);
       return NextResponse.json({ isValid });
     } else {
       return NextResponse.json(
