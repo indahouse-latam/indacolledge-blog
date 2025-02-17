@@ -742,6 +742,27 @@
         },
         "optional": true
       },
+      "status": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "created"
+            },
+            {
+              "type": "string",
+              "value": "pending"
+            },
+            {
+              "type": "string",
+              "value": "published"
+            }
+          ]
+        },
+        "optional": true
+      },
       "mainImage": {
         "type": "objectAttribute",
         "value": {

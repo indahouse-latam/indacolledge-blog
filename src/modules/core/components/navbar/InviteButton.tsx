@@ -101,7 +101,6 @@ export const InviteButton = () => {
                     errorMessage={errors.role?.message}
                     defaultSelectedKeys={"viewer"}
                     selectionMode="single"
-                    onSelectionChange={(e) => console.log(e)}
                   >
                     <SelectItem value="admin" key={"admin"}>
                       Admin

@@ -3,6 +3,7 @@ import { defineQuery } from "next-sanity";
 export const ARTICLES_QUERY = defineQuery(`*[
   _type == "article" && 
   defined(slug.current) && 
+  (!defined($status) || status == $status) &&
   (!defined($search) || title match $search || categories[]->title match $search || author->name match $search)
 ] | order(publishedAt desc) {
   _id,
@@ -16,6 +17,7 @@ export const ARTICLES_QUERY = defineQuery(`*[
     image,
     bio
   },
+  status,
   mainImage,
   categories[] -> {
     _id,
@@ -127,6 +129,7 @@ export const ARTICLES_BY_AUTHOR_QUERY = defineQuery(`
       image,
       bio
     },
+    status,
     mainImage,
     categories[] -> {
       _id,
@@ -153,6 +156,7 @@ export const ARTICLES_BY_ID_QUERY = defineQuery(`
       image,
       bio
     },
+    status,
     mainImage,
     categories[] -> {
       _id,
@@ -178,6 +182,7 @@ export const ARTICLES_BY_CATEGORY_QUERY = defineQuery(`
       image,
       bio
     },
+    status,
     mainImage,
     categories[] -> {
       _id,

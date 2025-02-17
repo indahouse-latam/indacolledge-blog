@@ -8,10 +8,11 @@ import { ArticleCard } from "./ArticleCard";
 export const FeaturedArticles = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ query?: string }>;
+  searchParams: Promise<{ query?: string; status?: string }>;
 }) => {
   const query = (await searchParams).query;
-  const params = { search: query || null };
+  const status = (await searchParams).status;
+  const params = { search: query || null, status: status || "published" };
 
   const { data: posts } = await sanityFetch({
     query: ARTICLES_QUERY,
@@ -36,7 +37,7 @@ export const FeaturedArticles = async ({
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
             <Suspense fallback={<CourseCardSkeleton />}>
-              {posts.map((post) => (
+              {(posts as ArticleCardType[]).map((post) => (
                 <ArticleCard
                   key={post?._id}
                   post={post as unknown as ArticleCardType}
