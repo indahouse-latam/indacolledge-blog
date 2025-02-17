@@ -38,7 +38,7 @@ export const PreloaderComponent = () => {
   };
 
   useEffect(() => {
-    if (intendedRole === "publisher") {
+    if (intendedRole) {
       updateUser();
     }
   }, [intendedRole]);
