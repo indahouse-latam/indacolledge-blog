@@ -8,7 +8,7 @@ export const CreatePostBtn = () => {
 
   return (
     <>
-      {user?.role === "viewer" ? (
+      {user && user?.role === "viewer" ? (
         <></>
       ) : (
         <Link href={"/article/create"}>
