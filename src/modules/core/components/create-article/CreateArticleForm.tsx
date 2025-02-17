@@ -42,7 +42,7 @@ export const CreateArticleForm = ({
       const result = await createCourse(formValues);
 
       if (result.status === "SUCCESS") {
-        toast.success("Your course has been created successfully");
+        toast.success("Your article has been created successfully");
         router.push(`/article/${result._id}`);
       }
     } catch (error) {
@@ -108,7 +108,7 @@ export const CreateArticleForm = ({
         className="article-form_btn text-white"
         isDisabled={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Submit Your Pitch"}
+        {isSubmitting ? "Submitting..." : "Submit Your Article"}
         <i
           className="icon-[grommet-icons--send]"
           role="img"
