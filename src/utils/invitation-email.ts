@@ -37,7 +37,7 @@ export const sendInvitationEmail = async ({
               <table role="presentation" style="margin: 30px auto;">
                 <tr>
                   <td style="text-align: center;">
-                    <a href="https://indacolledge.indahouse.com.co/${locale}/sign-up?token=${token}"
+                    <a href="${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/sign-up?token=${token}"
                        style="background-color: #2E294E;
                               color: white;
                               padding: 14px 32px;
