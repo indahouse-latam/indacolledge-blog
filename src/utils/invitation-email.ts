@@ -32,7 +32,7 @@ export const sendInvitationEmail = async ({
                 Team Invitation
               </h1>
               <p style="color: #4A4A4A; font-size: 16px; line-height: 24px; margin: 0 0 20px 0;">
-                You have been invited to join Indacollege as ${role}!
+                You have been invited to join indacolledge as ${role}!
               </p>
               <table role="presentation" style="margin: 30px auto;">
                 <tr>
@@ -80,7 +80,7 @@ export const sendInvitationEmail = async ({
     await resend.emails.send({
       from: "info@indahouse.com.co",
       to: email,
-      subject: `Invitation to join Indacollege platform`,
+      subject: `Invitation to join indacolledge platform`,
       html: emailHtml,
     });
   } catch (error) {

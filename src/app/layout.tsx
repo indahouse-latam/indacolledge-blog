@@ -22,11 +22,11 @@ const K2DFont = K2D({
 });
 
 export const metadata: Metadata = {
-  title: "Indacollege",
+  title: "indacolledge",
   description:
     "Learn and study with the Indahouse team through curated blog content.",
   openGraph: {
-    title: "Indacollege",
+    title: "indacolledge",
     description:
       "Learn and study with the Indahouse team through curated blog content.",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: "/indahouse.jpg",
         width: 1200,
         height: 630,
-        alt: "Indacollege - Learn and study with the Indahouse team",
+        alt: "indacolledge - Learn and study with the Indahouse team",
       },
     ],
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indacollege",
+    title: "indacolledge",
     description:
       "Learn and study with the Indahouse team through curated blog content.",
     images: ["/indahouse.jpg"],

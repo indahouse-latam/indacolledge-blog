@@ -24,7 +24,7 @@ export const Hero = async ({
           />
         </svg>
         <h1 className="heading">
-          Welcome to Indacollege <br /> A place to learn
+          Welcome to indacolledge <br /> A place to learn
         </h1>
         <p className="sub-heading !max-w-3xl">Watch our most recent articles</p>
         <SearchForm query={query} />
